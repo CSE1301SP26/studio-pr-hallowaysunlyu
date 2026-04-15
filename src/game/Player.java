@@ -8,11 +8,11 @@ import java.awt.event.KeyEvent;
 public class Player extends Entity {
 
     private long lastFired;
-    public static final double xPosition = 0.5;
-    public static final double yPosition = 0.05;
-    public static final double playerSize = 0.03;
-    public static final double displacement = 0.01;
-    public static final double delay = 500;
+    private static final double xPosition = 0.5;
+    private static final double yPosition = 0.05;
+    private static final double playerSize = 0.03;
+    private static final double displacement = 0.01;
+    private static final double delay = 500;
 
     public Player() {
         super(xPosition, yPosition, playerSize, Color.BLACK);

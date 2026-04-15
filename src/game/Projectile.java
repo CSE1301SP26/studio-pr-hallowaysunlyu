@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public class Projectile extends Entity {
 
-    public static final double projectileSize = 0.01;
+    private static final double projectileSize = 0.01;
 
     public Projectile(double x, double y, Color color) {
         super(x, y, projectileSize, color);

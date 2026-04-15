@@ -30,7 +30,7 @@ public class Game {
             score = 0;
             initializeLevel();
             boolean gameOver = false;
-            while(gameOver == false) {
+            while(!gameOver) {
                 updatePositions();
                 fireProjectiles();
                 gameOver = checkCollisions();
@@ -49,31 +49,31 @@ public class Game {
         playerProjectiles.clear();
         enemies.clear();
         for(int i = 0; i < numberOfEnemies; i++) {
-            Enemy e = new Enemy();
-            enemies.add(e);
+            Enemy enemy = new Enemy();
+            enemies.add(enemy);
         }  
     }
 
     private void updatePositions() {
         for(int i = 0; i < enemyProjectiles.size(); i++) {
-            Projectile p = enemyProjectiles.get(i);
-            p.moveDown();
-            if(p.isOutOfBounds() == true) {
-                enemyProjectiles.remove(p);
+            Projectile proj = enemyProjectiles.get(i);
+            proj.moveDown();
+            if(proj.isOutOfBounds() == true) {
+                enemyProjectiles.remove(proj);
             }
         }
 
         for(int i = 0; i < playerProjectiles.size(); i++) {
-            Projectile p = playerProjectiles.get(i);
-            p.moveUp();
-            if(p.isOutOfBounds() == true) {
-                playerProjectiles.remove(p);
+            Projectile proj = playerProjectiles.get(i);
+            proj.moveUp();
+            if(proj.isOutOfBounds() == true) {
+                playerProjectiles.remove(proj);
             }
         }
 
         for(int i = 0; i < enemies.size(); i++) {
-            Enemy e = enemies.get(i);
-            e.move();
+            Enemy enemy = enemies.get(i);
+            enemy.move();
         }
 
         player.move();
@@ -131,8 +131,8 @@ public class Game {
             p.draw();
         }
         player.draw();
-        StdDraw.text(0.1, 0.9, "Score: " + score);
-        StdDraw.pause(40);
+        StdDraw.text(0.1, 0.9, "Score: " + score); //position of the text
+        StdDraw.pause(40); //40 ms
         StdDraw.show();
     }
 
